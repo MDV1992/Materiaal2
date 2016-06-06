@@ -173,6 +173,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Aanvraag\Aanvraag.cs" />
+    <Compile Include="Models\Aanvraag\AanvraagDetail.cs" />
+    <Compile Include="Models\Aanvraag\Tak.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Artikel\Artikel.cs" />
     <Compile Include="Models\Artikel\Categorie.cs" />
