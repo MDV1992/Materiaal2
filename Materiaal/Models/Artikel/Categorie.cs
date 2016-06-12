@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Materiaal.Models.Artikel
+namespace Materiaal.Models
 {
     public class Categorie
     {
-        int cat_Id { get; set; }
-        string cat_Naam { get; set; }
+        [Key]
+       public int Cat_Id { get; set; }
+
+        [DisplayName("Categorie")]
+        public string cat_Naam { get; set; }
     }
 }

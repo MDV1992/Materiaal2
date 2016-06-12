@@ -11,108 +11,107 @@ using Materiaal.Models;
 
 namespace Materiaal.Controllers
 {
-    public class ArtikelsController : Controller
+    public class CategoriesController : Controller
     {
         private Context db = new Context();
 
-        // GET: Artikels
-         public ActionResult Index()
-       {
-            return View(db.Artikelen.ToList());
-
+        // GET: Categories
+        public ActionResult Index()
+        {
+            return View(db.Categorien.ToList());
         }
 
-        // GET: Artikels/Details/5
+        // GET: Categories/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Artikel artikel = db.Artikelen.Find(id);
-            if (artikel == null)
+            Categorie categorie = db.Categorien.Find(id);
+            if (categorie == null)
             {
                 return HttpNotFound();
             }
-            return View(artikel);
+            return View(categorie);
         }
 
-        // GET: Artikels/Create
+        // GET: Categories/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Artikels/Create
+        // POST: Categories/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "art_Id,art_Naam,voorraad,cat_Id,prijs,Leverancier")] Artikel artikel)
+        public ActionResult Create([Bind(Include = "Cat_Id,cat_Naam")] Categorie categorie)
         {
             if (ModelState.IsValid)
             {
-                db.Artikelen.Add(artikel);
+                db.Categorien.Add(categorie);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(artikel);
+            return View(categorie);
         }
 
-        // GET: Artikels/Edit/5
+        // GET: Categories/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Artikel artikel = db.Artikelen.Find(id);
-            if (artikel == null)
+            Categorie categorie = db.Categorien.Find(id);
+            if (categorie == null)
             {
                 return HttpNotFound();
             }
-            return View(artikel);
+            return View(categorie);
         }
 
-        // POST: Artikels/Edit/5
+        // POST: Categories/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "art_Id,art_Naam,voorraad,cat_Id,prijs,Leverancier")] Artikel artikel)
+        public ActionResult Edit([Bind(Include = "Cat_Id,cat_Naam")] Categorie categorie)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(artikel).State = EntityState.Modified;
+                db.Entry(categorie).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(artikel);
+            return View(categorie);
         }
 
-        // GET: Artikels/Delete/5
+        // GET: Categories/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Artikel artikel = db.Artikelen.Find(id);
-            if (artikel == null)
+            Categorie categorie = db.Categorien.Find(id);
+            if (categorie == null)
             {
                 return HttpNotFound();
             }
-            return View(artikel);
+            return View(categorie);
         }
 
-        // POST: Artikels/Delete/5
+        // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Artikel artikel = db.Artikelen.Find(id);
-            db.Artikelen.Remove(artikel);
+            Categorie categorie = db.Categorien.Find(id);
+            db.Categorien.Remove(categorie);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

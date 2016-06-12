@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Materiaal.Models.Artikel
+namespace Materiaal.Models
 {
     public class Artikel
     {
@@ -21,6 +21,7 @@ namespace Materiaal.Models.Artikel
         public double prijs { get; set; }
         [DisplayName("Leverancier")]
         public string Leverancier { get; set; }
+    
 
     }
 }
