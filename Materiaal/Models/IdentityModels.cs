@@ -29,5 +29,7 @@ namespace Materiaal.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Materiaal.Models.Artikel.Artikel> Artikels { get; set; }
     }
 }

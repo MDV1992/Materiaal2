@@ -1,0 +1,58 @@
+﻿@model Materiaal.Models.Artikel.Artikel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Artikel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.art_Naam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.art_Naam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.voorraad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.voorraad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cat_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cat_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prijs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prijs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Leverancier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Leverancier)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.art_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
