@@ -187,6 +187,11 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\Artikels\ArtikelCreateViewModel.cs" />
+    <Compile Include="ViewModels\Artikels\ArtikelDeleteViewModel.cs" />
+    <Compile Include="ViewModels\Artikels\ArtikelDetailViewModel.cs" />
+    <Compile Include="ViewModels\Artikels\ArtikelEditViewModel.cs" />
+    <Compile Include="ViewModels\Artikels\ArtikelIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

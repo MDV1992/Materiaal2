@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Materiaal.DAL;
 using Materiaal.Models;
+using Materiaal.ViewModels.Artikels;
 
 namespace Materiaal.Controllers
 {
@@ -18,7 +19,26 @@ namespace Materiaal.Controllers
         // GET: Artikels
          public ActionResult Index()
        {
-            return View(db.Artikelen.ToList());
+            List<ArtikelIndexViewModel> ArtikelVMList = new List<ArtikelIndexViewModel>();
+            List<Artikel> Artikelen = new List<Artikel>(db.Artikelen.ToList());
+
+            foreach (var art in Artikelen)
+            {
+                ArtikelIndexViewModel AIVM = new ArtikelIndexViewModel();
+                AIVM.artikel.art_Id = art.art_Id;
+                AIVM.artikel.art_Naam = art.art_Naam;
+                AIVM.artikel.cat_Id = art.cat_Id;
+                AIVM.artikel.Leverancier = art.Leverancier;
+                AIVM.artikel.prijs = art.prijs;
+                AIVM.artikel.voorraad = art.voorraad;
+                Categorie cat = db.Categorien.Find(AIVM.artikel.cat_Id);
+                AIVM.categorie.cat_Naam = cat.cat_Naam;
+
+                ArtikelVMList.Add(AIVM);
+                
+            }
+
+            return View(ArtikelVMList);
 
         }
 
@@ -34,12 +54,24 @@ namespace Materiaal.Controllers
             {
                 return HttpNotFound();
             }
-            return View(artikel);
+            int cID = artikel.cat_Id;
+            Categorie cat = db.Categorien.Find(id);
+            ArtikelDetailViewModel ADVM = new ArtikelDetailViewModel();
+            ADVM.artikel.art_Id = artikel.art_Id;
+            ADVM.artikel.art_Naam = artikel.art_Naam;
+            ADVM.categorie.cat_Naam = cat.cat_Naam;
+            ADVM.artikel.Leverancier = artikel.Leverancier;
+            ADVM.artikel.prijs = artikel.prijs;
+            ADVM.artikel.voorraad = artikel.voorraad;
+
+
+            return View(ADVM);
         }
 
         // GET: Artikels/Create
         public ActionResult Create()
         {
+            ViewBag.CategorySelect = new SelectList(db.Categorien, "Cat_id", "cat_Naam");
             return View();
         }
 
@@ -91,19 +123,40 @@ namespace Materiaal.Controllers
             return View(artikel);
         }
 
-        // GET: Artikels/Delete/5
+   
+        // GET: Products/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            Artikel art = db.Artikelen.Find(id);
+            if (art == null)
+            {
+                return HttpNotFound();
+            }
+
             Artikel artikel = db.Artikelen.Find(id);
             if (artikel == null)
             {
                 return HttpNotFound();
             }
-            return View(artikel);
+            int cID = artikel.cat_Id;
+            Categorie cat = db.Categorien.Find(id);
+            ArtikelDeleteViewModel ADEVM = new ArtikelDeleteViewModel();
+            ADEVM.artikel.art_Id = artikel.art_Id;
+            ADEVM.artikel.art_Naam = artikel.art_Naam;
+            ADEVM.categorie.cat_Naam = cat.cat_Naam;
+            ADEVM.artikel.Leverancier = artikel.Leverancier;
+            ADEVM.artikel.prijs = artikel.prijs;
+            ADEVM.artikel.voorraad = artikel.voorraad;
+
+
+            return View(ADEVM);
+
+
+            return View(art);
         }
 
         // POST: Artikels/Delete/5

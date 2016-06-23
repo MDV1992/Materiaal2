@@ -1,4 +1,4 @@
-﻿@model Materiaal.Models.Artikel
+﻿@model Materiaal.ViewModels.Artikels.ArtikelDeleteViewModel
 
 @{
     ViewBag.Title = "Delete";
@@ -12,43 +12,43 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.art_Naam)
+            @Html.DisplayNameFor(model => model.artikel.art_Naam)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.art_Naam)
+            @Html.DisplayFor(model => model.artikel.art_Naam)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.voorraad)
+            @Html.DisplayNameFor(model => model.artikel.voorraad)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.voorraad)
+            @Html.DisplayFor(model => model.artikel.voorraad)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.cat_Id)
+            @Html.DisplayNameFor(model => model.categorie.cat_Naam)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.cat_Id)
+            @Html.DisplayFor(model => model.categorie.cat_Naam)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.prijs)
+            @Html.DisplayNameFor(model => model.artikel.prijs)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.prijs)
+            @Html.DisplayFor(model => model.artikel.prijs)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Leverancier)
+            @Html.DisplayNameFor(model => model.artikel.Leverancier)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Leverancier)
+            @Html.DisplayFor(model => model.artikel.Leverancier)
         </dd>
 
     </dl>
