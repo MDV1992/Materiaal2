@@ -23,5 +23,6 @@ namespace Materiaal.DAL
         public DbSet<Artikel> Artikelen { get; set; }
         public DbSet<Categorie> Categorien { get; set; }
 
+        public System.Data.Entity.DbSet<Materiaal.Models.Aanvraag.Tak> Taks { get; set; }
     }
 }

@@ -21,6 +21,8 @@ namespace Materiaal.Models
         public double prijs { get; set; }
         [DisplayName("Leverancier")]
         public string Leverancier { get; set; }
+        [DisplayName("Actief")]
+        public Boolean actief { get; set; }
         public virtual Categorie Categorie { get; set; }
 
 

@@ -9,8 +9,8 @@ namespace Materiaal.Models.Aanvraag
     {
        public int det_Id { get; set; }
     
-       public int aan_Id { get; set; }
-       public int art_Id { get; set; }
+       public int aanvraag_Id { get; set; }
+       public int artikel_Id { get; set; }
        public int aantal { get; set; }  
     }
 }

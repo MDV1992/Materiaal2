@@ -31,6 +31,7 @@ namespace Materiaal.Controllers
                 AIVM.artikel.Leverancier = art.Leverancier;
                 AIVM.artikel.prijs = art.prijs;
                 AIVM.artikel.voorraad = art.voorraad;
+                AIVM.artikel.actief = art.actief;
                 Categorie cat = db.Categorien.Find(AIVM.artikel.cat_Id);
                 AIVM.categorie.cat_Naam = cat.cat_Naam;
 
@@ -53,19 +54,10 @@ namespace Materiaal.Controllers
             if (artikel == null)
             {
                 return HttpNotFound();
+
             }
-            int cID = artikel.cat_Id;
-            Categorie cat = db.Categorien.Find(id);
-            ArtikelDetailViewModel ADVM = new ArtikelDetailViewModel();
-            ADVM.artikel.art_Id = artikel.art_Id;
-            ADVM.artikel.art_Naam = artikel.art_Naam;
-            ADVM.categorie.cat_Naam = cat.cat_Naam;
-            ADVM.artikel.Leverancier = artikel.Leverancier;
-            ADVM.artikel.prijs = artikel.prijs;
-            ADVM.artikel.voorraad = artikel.voorraad;
 
-
-            return View(ADVM);
+            return View(artikel);
         }
 
         // GET: Artikels/Create
@@ -104,6 +96,7 @@ namespace Materiaal.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CategorySelect = new SelectList(db.Categorien, "Cat_id", "cat_Naam");
             return View(artikel);
         }
 
@@ -142,21 +135,7 @@ namespace Materiaal.Controllers
             {
                 return HttpNotFound();
             }
-            int cID = artikel.cat_Id;
-            Categorie cat = db.Categorien.Find(id);
-            ArtikelDeleteViewModel ADEVM = new ArtikelDeleteViewModel();
-            ADEVM.artikel.art_Id = artikel.art_Id;
-            ADEVM.artikel.art_Naam = artikel.art_Naam;
-            ADEVM.categorie.cat_Naam = cat.cat_Naam;
-            ADEVM.artikel.Leverancier = artikel.Leverancier;
-            ADEVM.artikel.prijs = artikel.prijs;
-            ADEVM.artikel.voorraad = artikel.voorraad;
-
-
-            return View(ADEVM);
-
-
-            return View(art);
+            return View(artikel);
         }
 
         // POST: Artikels/Delete/5
