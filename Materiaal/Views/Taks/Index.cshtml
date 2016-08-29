@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Materiaal.Models.Aanvraag.Tak>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Tak overzicht";
 }
 
-<h2>Index</h2>
+<h2>Overzicht</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nieuwe tak toevoegen", "Create")
 </p>
 <table class="table">
     <tr>
@@ -23,9 +23,8 @@
             @Html.DisplayFor(modelItem => item.tak_Naam)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.tak_Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.tak_Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.tak_Id })
+            @Html.ActionLink("Bewerken", "Edit", new { id=item.tak_Id }) |
+            @Html.ActionLink("Verwijderen", "Delete", new { id=item.tak_Id })
         </td>
     </tr>
 }
